@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Logan Woodward - About</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f7f4ef;
+      color: #2c2c2c;
+      font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
+      line-height: 1.8;
+      padding: 0 24px;
+    }
+
+    .container {
+      max-width: 620px;
+      margin: 0 auto;
+      padding: 60px 0 120px;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .back {
+      color: #999;
+      text-decoration: none;
+      font-size: 0.85em;
+      display: inline-block;
+      margin-bottom: 32px;
+      transition: color 0.2s;
+    }
+
+    .back:hover { color: #666; }
+
+    .photo-wrapper {
+      margin-bottom: 32px;
+    }
+
+    .photo {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center 20%;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #1a1a1a;
+      font-size: 2.2em;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #999;
+      font-size: 0.95em;
+      margin-bottom: 36px;
+    }
+
+    .section { margin-bottom: 36px; }
+
+    p {
+      margin-bottom: 14px;
+      font-size: 1em;
+      color: #444;
+    }
+
+    a { color: #3d7a35; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    .contact-item { margin-bottom: 8px; font-size: 0.95em; color: #444; }
+
+    .divider { border: none; border-top: 1px solid #e8e4dd; margin: 36px 0; }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.7em; }
+      .container { padding: 40px 0 80px; }
+      .photo { width: 120px; height: 120px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <a class="back" href="index.html">back</a>
+
+    <div class="photo-wrapper">
+      <img class="photo" src="logan.jpg" alt="Logan Woodward">
+    </div>
+
+    <h1>Logan Woodward</h1>
+    <div class="subtitle">South Bay, CA</div>
+
+    <div class="section">
+      <p>I work in operations and logistics. I've supervised delivery fleets, managed warehouse operations, and coordinated freight for some of the biggest agricultural shippers in California. It's not glamorous work but I'm good at it and I like making things run.</p>
+
+      <p>Outside of that, I build stuff. AI tools, games, whatever catches my attention. I don't have a computer science background. I have a business degree and a lot of curiosity. Most of what I know I figured out by doing it wrong first.</p>
+
+    </div>
+
+    <hr class="divider">
+
+    <div class="section">
+      <div class="contact-item"><a href="mailto:loganwoodward20@gmail.com">loganwoodward20@gmail.com</a></div>
+      <div class="contact-item"><a href="https://linkedin.com/in/logan-woodward-3a8893367">linkedin</a></div>
+      <div class="contact-item"><a href="https://github.com/loganwoodward">github</a></div>
+    </div>
+
+  </div>
+</body>
+</html>

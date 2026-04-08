@@ -11,161 +11,294 @@
       background: #f7f4ef;
       color: #2c2c2c;
       font-family: -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif;
-      line-height: 1.8;
-      padding: 0 24px;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    .container {
-      max-width: 620px;
-      margin: 0 auto;
-      padding: 80px 0 120px;
+    /* === LOADING SCREEN === */
+    .loader {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: #1a1a1a;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 100;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+    }
+
+    .loader.hidden {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .loader-name {
+      color: #f7f4ef;
+      font-size: 1.4em;
+      font-weight: 600;
+      margin-bottom: 32px;
+      letter-spacing: 2px;
+    }
+
+    .loader-bar-track {
+      width: 240px;
+      height: 3px;
+      background: #333;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 40px;
+    }
+
+    .loader-bar {
+      height: 100%;
+      width: 0%;
+      background: #4a8c3f;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+
+    .loader-tip {
+      color: #888;
+      font-size: 0.85em;
+      max-width: 380px;
+      text-align: center;
+      line-height: 1.6;
+      min-height: 48px;
+      transition: opacity 0.4s ease;
+      padding: 0 20px;
+    }
+
+    .loader-label {
+      color: #4a8c3f;
+      font-size: 0.7em;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    /* === LANDING === */
+    .landing {
+      text-align: center;
+      padding: 40px 24px;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+    }
+
+    .landing.visible {
+      opacity: 1;
     }
 
     h1 {
       color: #1a1a1a;
-      font-size: 2.2em;
+      font-size: 2.6em;
       font-weight: 600;
-      margin-bottom: 6px;
+      margin-bottom: 12px;
     }
 
-    .tagline {
-      color: #777;
-      font-size: 1.05em;
+    .sub {
+      color: #bbb;
+      font-size: 0.85em;
       margin-bottom: 52px;
-      font-weight: 400;
+      letter-spacing: 1px;
     }
 
-    .section {
-      margin-bottom: 44px;
-    }
-
-    .section-label {
-      color: #999;
-      font-size: 0.7em;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      margin-bottom: 14px;
-      font-weight: 600;
-    }
-
-    p {
-      margin-bottom: 14px;
-      font-size: 1em;
-      color: #444;
-    }
-
-    a {
-      color: #3d7a35;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .project {
-      background: #fff;
-      border-radius: 8px;
-      padding: 20px 24px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
-    }
-
-    .project-name {
-      color: #1a1a1a;
+    .question {
+      color: #888;
       font-size: 1.05em;
-      font-weight: 600;
+      margin-bottom: 28px;
     }
 
-    .project-desc {
-      color: #666;
-      font-size: 0.9em;
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .btn {
+      display: block;
+      padding: 18px 28px;
+      background: #fff;
+      border: 1px solid #e8e4dd;
+      border-radius: 12px;
+      color: #2c2c2c;
+      font-size: 1em;
+      font-family: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #3d7a35;
+      transition: width 0.3s ease;
+    }
+
+    .btn:hover::after { width: 100%; }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+      border-color: #d0cdc6;
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    }
+
+    .btn .label { font-weight: 600; font-size: 1.02em; }
+
+    .btn .hint {
+      font-size: 0.78em;
+      color: #aaa;
       margin-top: 4px;
+      transition: color 0.25s ease;
     }
 
-    .project-link {
-      font-size: 0.8em;
-      margin-top: 8px;
-      display: inline-block;
-    }
-
-    .project-tag {
-      display: inline-block;
-      background: #eef6ec;
-      color: #3d7a35;
-      font-size: 0.7em;
-      padding: 2px 8px;
-      border-radius: 4px;
-      margin-top: 8px;
-      font-weight: 600;
-    }
-
-    .contact-item {
-      margin-bottom: 8px;
-      font-size: 0.95em;
-      color: #444;
-    }
-
-    .divider {
-      border: none;
-      border-top: 1px solid #e8e4dd;
-      margin: 44px 0;
-    }
+    .btn:hover .hint { color: #888; }
 
     @media (max-width: 600px) {
-      h1 { font-size: 1.7em; }
-      .container { padding: 40px 0 80px; }
-      .project { padding: 16px 18px; }
+      h1 { font-size: 2em; }
+      .buttons { padding: 0 8px; }
+      .btn { padding: 16px 20px; }
+      .loader-name { font-size: 1.1em; }
     }
   </style>
 </head>
 <body>
-  <div class="container">
 
-    <h1>Logan Woodward</h1>
-
-    <div class="section">
-      <p>Operations and logistics by day. B.S. in Business Administration. I enjoy building AI tools and designing stuff I find interesting. No formal background in CS or tech, this is just for fun.</p>
+  <!-- LOADING SCREEN -->
+  <div class="loader" id="loader">
+    <div class="loader-name">LOGAN WOODWARD</div>
+    <div class="loader-bar-track">
+      <div class="loader-bar" id="loaderBar"></div>
     </div>
-
-    <hr class="divider">
-
-    <div class="section">
-      <div class="section-label">Projects</div>
-
-      <div class="project">
-        <div class="project-name">Claude Code Mobile</div>
-        <div class="project-desc">Text your Claude Code session from Telegram. No API required. Works with Codex too.</div>
-        <span class="project-tag">shipped</span>
-        <br>
-        <a class="project-link" href="https://github.com/loganwoodward/claude-code-mobile">view on github</a>
-      </div>
-
-      <div class="project">
-        <div class="project-name">Goblin Overlord</div>
-        <div class="project-desc">Browser roguelite. You're a wizard with a goblin army. Procedural art, ragdoll physics, no sprites.</div>
-        <span class="project-tag">in progress</span>
-      </div>
-    </div>
-
-    <hr class="divider">
-
-    <div class="section">
-      <div class="section-label">Background</div>
-      <p>Operations, Logistics, Freight. Based in South Bay, CA.</p>
-    </div>
-
-    <hr class="divider">
-
-    <div class="section">
-      <div class="section-label">Contact</div>
-      <div class="contact-item"><a href="mailto:loganwoodward20@gmail.com">loganwoodward20@gmail.com</a></div>
-      <div class="contact-item"><a href="https://linkedin.com/in/logan-woodward-3a8893367">linkedin</a></div>
-      <div class="contact-item"><a href="https://github.com/loganwoodward">github</a></div>
-      <div class="contact-item"><a href="https://profile.indeed.com/p/logans-ngs7pw0">indeed</a></div>
-      <div class="contact-item"><a href="/Logan_Woodward_Resume_2026.pdf">resume</a></div>
-    </div>
-
+    <div class="loader-label">DID YOU KNOW?</div>
+    <div class="loader-tip" id="loaderTip"></div>
   </div>
+
+  <!-- LANDING -->
+  <div class="landing" id="landing">
+    <h1>Logan Woodward</h1>
+    <div class="sub">loganwoodward.net</div>
+
+    <div class="question">What brings you here?</div>
+
+    <div class="buttons">
+      <a class="btn" href="#" onclick="navigateTo('ops.html'); return false;">
+        <div class="label">Operations & Logistics</div>
+        <div class="hint">Warehouses, fleets, freight, supply chain</div>
+      </a>
+
+      <a class="btn" href="#" onclick="navigateTo('tech.html'); return false;">
+        <div class="label">Tech & Projects</div>
+        <div class="hint">AI tools, game dev, things I build for fun</div>
+      </a>
+
+      <a class="btn" href="#" onclick="navigateTo('about.html'); return false;">
+        <div class="label">I'm not sure, I just think he's interesting</div>
+        <div class="hint">About me</div>
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const tips = [
+      "Logan's favorite animal is the prairie dog. He just thinks they're neat.",
+      "Logan has thousands of hours in League of Legends and is still really bad.",
+      "You can sometimes find Logan at his desk in his room.",
+      "Logan has a fear of the ocean.",
+      "Logan has two cats named Lucy and Cooper.",
+      "Logan spent 3k on a MacBook he barely uses and the window to return it is rapidly closing.",
+      "Logan's favorite color is green.",
+      "Logan is currently developing an indie game called Goblin Overlord.",
+      "Logan visited Italy with his mom when he was 13.",
+      "Logan bought a 3D printer and it's still in the box.",
+      "Logan has rewritten his resume 8 times in the past month.",
+      "Logan wants to learn another language but he hasn't gotten around to it.",
+    ];
+
+    // Shuffle tips
+    const shuffled = tips.sort(() => Math.random() - 0.5);
+
+    const bar = document.getElementById('loaderBar');
+    const tipEl = document.getElementById('loaderTip');
+    const loader = document.getElementById('loader');
+    const landing = document.getElementById('landing');
+
+    const totalTime = 3000; // 3 seconds total
+    const startTime = Date.now();
+
+    // Reset bar to 0 and show one random tip per load
+    bar.style.transition = 'none';
+    bar.style.width = '0%';
+    bar.offsetHeight; // force reflow
+    bar.style.transition = 'width 0.3s ease';
+    tipEl.textContent = shuffled[0];
+
+    // Animate progress bar
+    const barTimer = setInterval(() => {
+      const elapsed = Date.now() - startTime;
+      const progress = Math.min((elapsed / totalTime) * 100, 100);
+      bar.style.width = progress + '%';
+
+      if (progress >= 100) {
+        clearInterval(barTimer);
+        setTimeout(() => {
+          loader.classList.add('hidden');
+          landing.classList.add('visible');
+        }, 400);
+      }
+    }, 30);
+
+    function navigateTo(url) {
+      // Hide landing, show loader with new tip, then navigate
+      landing.classList.remove('visible');
+      loader.classList.remove('hidden');
+
+      const newTip = shuffled[Math.floor(Math.random() * shuffled.length)];
+      tipEl.style.opacity = 0;
+      setTimeout(() => {
+        tipEl.textContent = newTip;
+        tipEl.style.opacity = 1;
+      }, 200);
+
+      bar.style.transition = 'none';
+      bar.style.width = '0%';
+      bar.offsetHeight; // force reflow
+      bar.style.transition = 'width 0.3s ease';
+      const navStart = Date.now();
+      const navTime = 2500;
+
+      const navBar = setInterval(() => {
+        const elapsed = Date.now() - navStart;
+        const progress = Math.min((elapsed / navTime) * 100, 100);
+        bar.style.width = progress + '%';
+
+        if (progress >= 100) {
+          clearInterval(navBar);
+          setTimeout(() => {
+            window.location.href = url;
+          }, 300);
+        }
+      }, 30);
+    }
+  </script>
+
 </body>
 </html>
